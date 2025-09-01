@@ -4,6 +4,8 @@ import { PDFDocument, rgb, StandardFonts, degrees } from 'pdf-lib';
 import { FileUploader } from './FileUploader';
 import { WatermarkOptions, WatermarkPosition } from '../App';
 import './SettingsPanel.css';
+import * as pdfjsLib from 'pdfjs-dist';
+pdfjsLib.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL}/pdf.worker.min.mjs`;
 
 // Helper functions...
 const hexToRgba = (hex: string, opacity: number) => {
