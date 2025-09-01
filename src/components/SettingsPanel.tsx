@@ -5,7 +5,7 @@ import { FileUploader } from './FileUploader';
 import { WatermarkOptions, WatermarkPosition } from '../App';
 import './SettingsPanel.css';
 import * as pdfjsLib from 'pdfjs-dist';
-pdfjsLib.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL}/pdf.worker.min.mjs`;
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.worker.min.js`;
 
 // Helper functions...
 const hexToRgba = (hex: string, opacity: number) => {
