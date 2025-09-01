@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import JSZip from 'jszip';
 import { PDFDocument, rgb, StandardFonts, degrees } from 'pdf-lib';
 import { FileUploader } from './FileUploader';
-import { WatermarkOptions, WatermarkPosition, WatermarkMode } from '../App';
+import { WatermarkOptions, WatermarkPosition } from '../App';
 import './SettingsPanel.css';
 
 // Helper functions...

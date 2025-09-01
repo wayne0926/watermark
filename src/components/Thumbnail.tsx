@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { WatermarkOptions, WatermarkPosition } from '../App';
-import * as pdfjsLib from 'pdfjs-dist';
+
 import { RenderTask, PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api';
 
 interface ThumbnailProps {
