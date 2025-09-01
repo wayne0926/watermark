@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# Watermark App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and intuitive online tool for adding watermarks to your documents and images. This application allows users to upload files, customize watermark text, font size, color, opacity, angle, and position, and then preview and download the watermarked output.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **File Upload:** Easily upload multiple PDF and image files.
+- **Customizable Watermarks:**
+    - **Text:** Define your custom watermark text.
+    - **Font Size & Color:** Adjust the appearance of your watermark.
+    - **Opacity & Angle:** Control the visibility and rotation.
+    - **Positioning:** Choose from various predefined positions (e.g., top-left, middle-center, bottom-right) or repeating patterns.
+- **Live Preview:** See your watermark applied in real-time.
+- **Batch Processing:** Apply watermarks to multiple files simultaneously.
+- **Download:** Download the watermarked files.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- TypeScript
+- Bootstrap (for styling)
+- pdf-lib (for PDF manipulation)
+- jszip (for downloading multiple files)
+- pdfjs-dist (for PDF rendering in preview)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Make sure you have Node.js and npm (or yarn) installed.
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/wayne0926/watermark.git
+   cd watermark-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running the Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the application in development mode:
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Building for Production
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To build the application for production:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+This will create a `build` folder with optimized static files ready for deployment.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The `build` folder contains all the necessary static assets. You can deploy this folder to any static file hosting service or web server (e.g., Nginx, Apache, Netlify, Vercel).
+
+## Contributing
+
+Feel free to fork the repository, open issues, and submit pull requests.
+
+## License
+
+[Specify your license here, e.g., MIT License]
