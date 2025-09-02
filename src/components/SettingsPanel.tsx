@@ -334,7 +334,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         </div>
         <div className="mb-3">
           <label htmlFor="opacity" className="form-label">Opacity: {localOptions.opacity}</label>
-          <input type="range" className="form-range" id="opacity" min="0" max="1" step="0.1" value={localOptions.opacity} onChange={(e) => handleOptionChange('opacity', parseFloat(e.target.value))} />
+          <input type="range" className="form-range" id="opacity" min="0" max="1" step="0.01" value={localOptions.opacity} onChange={(e) => handleOptionChange('opacity', parseFloat(e.target.value))} />
         </div>
         <div className="mb-3">
           <label htmlFor="angle" className="form-label">Angle: {localOptions.angle}°</label>
