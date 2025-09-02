@@ -67,26 +67,20 @@ const drawWatermark = (ctx: CanvasRenderingContext2D, options: WatermarkOptions)
         
         const textMetrics = ctx.measureText(text);
         const textWidth = textMetrics.width;
-        const textHeight = fontSize; 
+        const textHeight = fontSize; // Using fontSize as an approximation for height
 
-        const rad = -angle * Math.PI / 180; // Negative for counter-clockwise
-        const absCos = Math.abs(Math.cos(rad));
-        const absSin = Math.abs(Math.sin(rad));
-        const boxWidth = textWidth * absCos + textHeight * absSin;
-        const boxHeight = textWidth * absSin + textHeight * absCos;
-
-        const hSpacing = boxWidth + colSpacing;
-        const vSpacing = boxHeight + rowSpacing;
-
-        // Translate to center to rotate around the center of the canvas
-        ctx.translate(width / 2, height / 2);
-        ctx.rotate(rad);
-        // Translate back
-        ctx.translate(-width / 2, -height / 2);
+        const hSpacing = textWidth + colSpacing;
+        const vSpacing = textHeight + rowSpacing;
         
-        for (let y = 0; y < height * 2; y += vSpacing) {
-            for (let x = 0; x < width * 2; x += hSpacing) {
-                ctx.fillText(text, x - width, y - height);
+        const rad = -angle * Math.PI / 180;
+
+        for (let y = 0; y < height + vSpacing; y += vSpacing) {
+            for (let x = 0; x < width + hSpacing; x += hSpacing) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rad);
+                ctx.fillText(text, 0, 0);
+                ctx.restore();
             }
         }
         ctx.restore();

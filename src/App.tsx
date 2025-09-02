@@ -54,7 +54,7 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
-          <span className="navbar-brand mb-0 h1">Online Watermark Tool</span>
+          <span className="navbar-brand mb-0 h1">Watermark App</span>
         </div>
       </nav>
       <main className="container mt-4">

@@ -155,24 +155,20 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         
         const textMetrics = ctx.measureText(text);
         const textWidth = textMetrics.width;
-        const textHeight = fontSize; 
+        const textHeight = fontSize; // Using fontSize as an approximation for height
 
-        const rad = -angle * Math.PI / 180; // Negative for counter-clockwise
-        const absCos = Math.abs(Math.cos(rad));
-        const absSin = Math.abs(Math.sin(rad));
-        const boxWidth = textWidth * absCos + textHeight * absSin;
-        const boxHeight = textWidth * absSin + textHeight * absCos;
-
-        const hSpacing = boxWidth + colSpacing;
-        const vSpacing = boxHeight + rowSpacing;
-
-        ctx.translate(canvasWidth / 2, canvasHeight / 2);
-        ctx.rotate(rad);
-        ctx.translate(-canvasWidth / 2, -canvasHeight / 2);
+        const hSpacing = textWidth + colSpacing;
+        const vSpacing = textHeight + rowSpacing;
         
-        for (let y = 0; y < canvasHeight * 2; y += vSpacing) {
-            for (let x = 0; x < canvasWidth * 2; x += hSpacing) {
-                ctx.fillText(text, x - canvasWidth, y - canvasHeight);
+        const rad = -angle * Math.PI / 180;
+
+        for (let y = 0; y < canvasHeight + vSpacing; y += vSpacing) {
+            for (let x = 0; x < canvasWidth + hSpacing; x += hSpacing) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rad);
+                ctx.fillText(text, 0, 0);
+                ctx.restore();
             }
         }
         ctx.restore();
@@ -249,14 +245,8 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
             const textWidth = helveticaFont.widthOfTextAtSize(text, scaledFontSize);
             const textHeight = scaledFontSize;
 
-            const rad = angle * Math.PI / 180;
-            const absCos = Math.abs(Math.cos(rad));
-            const absSin = Math.abs(Math.sin(rad));
-            const boxWidth = textWidth * absCos + textHeight * absSin;
-            const boxHeight = textWidth * absSin + textHeight * absCos;
-
-            const hSpacing = boxWidth + colSpacing;
-            const vSpacing = boxHeight + rowSpacing;
+            const hSpacing = textWidth + colSpacing;
+            const vSpacing = textHeight + rowSpacing;
 
             for (let y = 0; y < height + vSpacing; y += vSpacing) {
                 for (let x = 0; x < width + hSpacing; x += hSpacing) {
@@ -348,7 +338,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
         </div>
         <div className="mb-3">
           <label htmlFor="angle" className="form-label">Angle: {localOptions.angle}°</label>
-          <input type="range" className="form-range" id="angle" min="-180" max="180" step="1" value={localOptions.angle} onChange={(e) => handleOptionChange('angle', parseInt(e.target.value, 10))} />
+          <input type="range" className="form-range" id="angle" min="-180" max="180" step="10" value={localOptions.angle} onChange={(e) => handleOptionChange('angle', parseInt(e.target.value, 10))} />
         </div>
         <div className="mb-3">
             <label htmlFor="color" className="form-label">Color</label>
