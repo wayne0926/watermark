@@ -71,4 +71,4 @@ Feel free to fork the repository, open issues, and submit pull requests.
 
 ## License
 
-[Specify your license here, e.g., MIT License]
+MIT
